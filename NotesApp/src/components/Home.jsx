@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
+import { addToNotes, updateToNotes } from '../redux/noteSlice';
 const Home = () => {
     const [ title,setTitle] = useState('');
     const [value, setValue] = useState('');
@@ -23,7 +24,7 @@ const Home = () => {
         dispatch(addToNotes(note));
       }
 
-      // after craetion/updation
+      // after creation/updation
       setTitle('');
       setValue('');
       setSearchParams({});

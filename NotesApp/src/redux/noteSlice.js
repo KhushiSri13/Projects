@@ -11,7 +11,9 @@ export const noteSlice = createSlice({
   initialState,
   reducers: {
     addToNotes: (state,action) => {
-      
+      const note = action.payload;
+      state.note.push(note);
+      localStorage.setItem("notes", state.note);
     },
     updateToNotes: (state,action) => {
       

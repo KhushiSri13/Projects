@@ -19,7 +19,7 @@ export const noteSlice = createSlice({
     },
     updateToNotes: (state,action) => {
       const note = action.payload
-      const index = state.note.findIndex((item) => item._id === pageXOffset._id)
+      const index = state.note.findIndex((item) => item._id === note)
       if(index >= 0){
         state.note[index]=note;
         localStorage.setItem("notes",JSON.stringify(state.note))
@@ -32,7 +32,7 @@ export const noteSlice = createSlice({
     },
     removeFromNotes: (state,action) => {
       const NotesId = action.payload;
-      const index = state.note.findIndex((item) => item._id === pageXOffset._id)
+      const index = state.note.findIndex((item) => item._id === NotesId)
       if(index >= 0){
         state.note.splice(index,1);
         localStorage.setItem("notes", JSON.stringify(state.note));

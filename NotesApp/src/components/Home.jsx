@@ -34,14 +34,14 @@ const Home = () => {
   return (
     <div>
       <div className='flex flex-row gap-7 place-content-between'>
-        <input className='p-1 rounded-2xl mt-2 w-[66%] pl-4'
+        <input className='p-1 rounded-2xl mt-2 w-[66%] pl-4 border-1'
         type="text" placeholder='Enter title here' value={title} onChange={(e)=>setTitle(e.target.value)} />
-        <button className='flex flex-row gap-7' onClick={createNotes}>
-           {NotesId ? "Update Notes" : "Create Notes"}
+        <button className='flex flex-row gap-7 ' onClick={createNotes}>
+           {(NotesId) ? "Update Notes" : "Create Notes"}
         </button>
       </div>
       <div className='mt-8'>
-        <textarea className='rounded-2xl mt-4, min-w-[500px] p-4'
+        <textarea className='rounded-2xl mt-4, min-w-[500px] p-4 border-2'
         value={value} placeholder="Enter Content Here" onChange={(e)=> setValue(e.target.value)}
           rows={20}/>
       </div>

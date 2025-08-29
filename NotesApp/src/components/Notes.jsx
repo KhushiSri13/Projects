@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromNotes } from "../redux/noteSlice";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Notes = () => {
   // filter contents
@@ -32,8 +33,12 @@ const Notes = () => {
                 <div>{notes.title}</div>
                 <div>{notes.content}</div>
                 <div className="flex flex-row gap-4 place-content-evenly">
-                  <button>edit</button>
-                  <button>view</button>
+                  <button>
+                    <Link to={`/?NotesId/${notes?.id}/edit`}>edit</Link>
+                  </button>
+                  <button>
+                    <Link to={`/notes/${notes?.id}`}>view</Link>
+                  </button>
                   <button onClick={() => handleDelete(notes?._id)}>
                     delete
                   </button>

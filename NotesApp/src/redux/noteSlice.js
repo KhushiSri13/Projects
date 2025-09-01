@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import toast, {Toaster} from  'react-hot-toast'
 const initialState = {
-  note: localStorage.getItem("note")
-  ? JSON.parse(localStorage.getItem("note"))
+  note: localStorage.getItem("notes")
+  ? JSON.parse(localStorage.getItem("notes"))
   : []
 }
 
@@ -13,13 +13,13 @@ export const noteSlice = createSlice({
     addToNotes: (state,action) => {
       const note = action.payload;
       state.note.push(note);
-      localStorage.setItem("notes", state.note);
-      JSON.stringify(state.note);
+      localStorage.setItem("notes", JSON.stringify(state.note));
+      // JSON.stringify(state.note);
       toast("Note created successfully");
     },
     updateToNotes: (state,action) => {
       const note = action.payload
-      const index = state.note.findIndex((item) => item._id === note)
+      const index = state.note.findIndex((item) => item._id === note._id)
       if(index >= 0){
         state.note[index]=note;
         localStorage.setItem("notes",JSON.stringify(state.note))

@@ -7,6 +7,7 @@ const Home = () => {
     const [value, setValue] = useState('');
     const [searchParams,setSearchParams] = useSearchParams();
     const NotesId = searchParams.get("notesId");
+    console.log("NotesId from URL:", NotesId);
     const dispatch = useDispatch()
     function createNotes(){
       const note = {

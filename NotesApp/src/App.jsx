@@ -35,15 +35,15 @@ const router = createBrowserRouter([
       </div>
     ),
   },
-  {
-    path: "/notes/:id/edit",
-    element: (
-      <div>
-        <Navbar />
-        <Home /> 
-      </div>
-    ),
-  },
+  // {
+  //   path: "/notes/:id/edit",
+  //   element: (
+  //     <div>
+  //       <Navbar />
+  //       <Home /> 
+  //     </div>
+  //   ),
+  // },
 ]);
 
 function App() {

@@ -19,7 +19,7 @@ const Notes = () => {
   return (
     <div>
       <input
-        className="p-2 rounded-2xl min-w-[600px] mt-5"
+        className="p-2 rounded-2xl min-w-[600px] mt-5 border-1 border-b-blue-950"
         type="search"
         placeholder="Search here"
         value={searchTerm}
@@ -34,7 +34,7 @@ const Notes = () => {
                 <div>{notes.content}</div>
                 <div className="flex flex-row gap-4 place-content-evenly">
                   <button>
-                    <Link to={`/?NotesId/${notes?.id}/edit`}>edit</Link>
+                    <Link to={`/?notesId=${notes?._id}`}>edit</Link>
                   </button>
                   <button>
                     <Link to={`/notes/${notes?.id}`}>view</Link>

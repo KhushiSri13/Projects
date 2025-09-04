@@ -1,14 +1,23 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addToNotes, updateToNotes } from '../redux/noteSlice';
 const Home = () => {
     const [ title,setTitle] = useState('');
     const [value, setValue] = useState('');
     const [searchParams,setSearchParams] = useSearchParams();
     const NotesId = searchParams.get("notesId");
-    console.log("NotesId from URL:", NotesId);
-    const dispatch = useDispatch()
+    const allNotes = useSelector((state)=>state.notes.note)
+    // console.log("NotesId from URL:", NotesId);
+    
+    const dispatch = useDispatch();
+    useEffect(()=>{
+          if(NotesId){
+            const notes = allNotes.find((p)=>p._id === NotesId);
+            setTitle(notes.title);
+            setValue(notes.content);
+          }
+    },[NotesId])
     function createNotes(){
       const note = {
         title: title,

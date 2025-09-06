@@ -37,7 +37,7 @@ const Notes = () => {
                     <Link to={`/?notesId=${notes?._id}`}>edit</Link>
                   </button>
                   <button>
-                    <Link to={`/notes/${notes?.id}`}>view</Link>
+                    <Link to={`/notes/${notes?._id}`}>view</Link>
                   </button>
                   <button onClick={() => handleDelete(notes?._id)}>
                     delete

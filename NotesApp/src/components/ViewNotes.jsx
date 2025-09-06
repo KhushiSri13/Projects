@@ -1,12 +1,12 @@
 // import React from 'react'
 import React, { useEffect, useState } from 'react'
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
 import { addToNotes, updateToNotes } from '../redux/noteSlice';
 const ViewNotes = () => {
   
   const {id} = useParams();
-
+  console.log("params:", id); 
   const allNotes = useSelector((state)=> state.notes.note)
 
   const notes = allNotes.find((p) => String(p._id) === String(id));
@@ -21,6 +21,7 @@ const ViewNotes = () => {
         {/* <button className='flex flex-row gap-7 ' onClick={createNotes}>
            {(NotesId) ? "Update Notes" : "Create Notes"}
         </button> */}
+        <button className='flex flex-row gap-7 black'><Link to={`/?notesId=${notes?._id}`}>Edit Note</Link></button>
       </div>
       <div className='mt-8'>
         <textarea className='rounded-2xl mt-4 min-w-[500px] p-4 border-2'

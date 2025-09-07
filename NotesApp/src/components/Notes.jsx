@@ -16,6 +16,29 @@ const Notes = () => {
   function handleDelete(NotesId) {
     dispatch(removeFromNotes(NotesId));
   }
+  async function handleShare(notes) {
+    if (!notes) return;
+
+    const shareUrl = `${window.location.origin}/note/${notes._id}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: notes.title,
+          text: "Check out this note!",
+          url: shareUrl,
+        });
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      navigator.clipboard
+        .writeText(shareUrl)
+        .then(() => alert("Link copied to clipboard!"))
+        .catch(() => alert("Failed to copy link."));
+    }
+  }
+
   return (
     <div>
       <input
@@ -32,15 +55,15 @@ const Notes = () => {
               <div className="border" key={notes?.id}>
                 <div>{notes.title}</div>
                 <div>{notes.content}</div>
-                <div className="flex flex-row gap-4 place-content-evenly">
-                  <button>
-                    <Link to={`/?notesId=${notes?._id}`}>edit</Link>
+                <div className="flex flex-row gap-4 place-content-evenly text-black">
+                  <button >
+                    <Link to={`/?notesId=${notes?._id}`} >Edit</Link>
                   </button>
                   <button>
-                    <Link to={`/notes/${notes?._id}`}>view</Link>
+                    <Link to={`/notes/${notes?._id}`}>View</Link>
                   </button>
                   <button onClick={() => handleDelete(notes?._id)}>
-                    delete
+                    Delete
                   </button>
                   <button
                     onClick={() => {
@@ -48,9 +71,9 @@ const Notes = () => {
                       toast.success("Copied to clipboard");
                     }}
                   >
-                    copy
+                    Copy
                   </button>
-                  <button>share</button>
+                  <button onClick={handleShare}>Share</button>
                 </div>
                 <div>{notes.createdAt}</div>
               </div>

@@ -10,8 +10,8 @@ const ViewNotes = () => {
   const allNotes = useSelector((state)=> state.notes.note)
 
   const notes = allNotes.find((p) => String(p._id) === String(id));
-
-  console.log("notes id: ",id);
+  
+  // console.log("notes id: ",id);
   
   return (
     <div>

@@ -56,8 +56,8 @@ const Notes = () => {
                 <div>{notes.title}</div>
                 <div>{notes.content}</div>
                 <div className="flex flex-row gap-4 place-content-evenly text-black">
-                  <button >
-                    <Link to={`/?notesId=${notes?._id}`} >Edit</Link>
+                  <button>
+                    <Link to={`/?notesId=${notes?._id}`}>Edit</Link>
                   </button>
                   <button>
                     <Link to={`/notes/${notes?._id}`}>View</Link>

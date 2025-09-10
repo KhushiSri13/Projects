@@ -2,13 +2,13 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="flex flex-row gap-200 justify-between items-center">
-        <div className="flex flex-row justify-evenly gap-6">
+    <div className="h-10 flex justify-between items-center bg-violet-400 px-4 py-4">
+        <div className="flex justify-around items-center gap-6">
             <img src="#" alt="logo" /> 
-            <h2>My Project</h2>
+            <h1 className='font-extrabold'>MapMyMind</h1>
         </div>
-        <div className="flex flex-row justify-evenly gap-6"> 
-            <button>Add</button>
+        <div className="flex justify-around items-center gap-6"> 
+            <button className='bg-transparent'>Add</button>
             <button>Theme</button>
             <h4>profile</h4>
         </div>

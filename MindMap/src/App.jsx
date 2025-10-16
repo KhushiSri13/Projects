@@ -4,7 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
-
+// import { Router } from 'react-router'
+import { createBrowserRouter } from 'react-router-dom'
+const router = createBrowserRouter([
+  {path: '/',
+    element: (<div><Navbar/></div>)
+  }, 
+  {}
+  
+])
 function App() {
   const [count, setCount] = useState(0)
 

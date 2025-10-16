@@ -8,9 +8,9 @@ const Navbar = () => {
             <h1 className='font-extrabold'>MapMyMind</h1>
         </div>
         <div className="flex justify-around items-center gap-6"> 
-            <button className='bg-transparent'>Add</button>
-            <button>Theme</button>
-            <h4>profile</h4>
+            <button className='h-7 flex items-center bg-transparent'>Add</button>
+            <button className='h-7 flex items-center bg-transparent'>Theme</button>
+            <button className='h-7 flex items-center bg-transparent'>profile/login</button>
         </div>
     </div>
   )

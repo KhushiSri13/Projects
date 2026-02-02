@@ -30,5 +30,5 @@ app.use("/",index)
 app.use("/owners",ownersRouter);
 app.use("/users",usersRouter);
 app.use("/products",productsRouter);
-
+console.log(process.env.EXPRESS_SESSION_SECRET)
 app.listen(3000)

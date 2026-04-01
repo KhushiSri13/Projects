@@ -1,0 +1,120 @@
+<%- include("./partials/header") %>
+
+<div class="bg-[#0b1120] text-white">
+
+
+<nav class="fixed w-full z-50 bg-[#0b1120]/70 backdrop-blur-lg border-b border-blue-500/20">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+
+    <div class="text-xl font-semibold text-white">DocuFort</div>
+
+    <input 
+      type="text" 
+      placeholder="Search your files..." 
+      class="hidden md:block px-4 py-1 rounded-md bg-[#1e293b] text-white border border-blue-500/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />
+
+    <div class="flex items-center gap-6">
+      <a href="/" class="hover:text-blue-400">Home</a>
+      <a href="/uploads" class="hover:text-blue-400">My Uploads</a>
+
+      <a href="/login" class="hover:text-blue-400">Login</a>
+      <a href="/signup" class="bg-blue-500 px-4 py-1 rounded-md hover:bg-blue-600 ">
+        Sign Up
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<section class="h-screen flex items-center justify-center text-center relative overflow-hidden">
+
+  <div class="absolute inset-0">
+    <img 
+      src="/images/hero-bg.jpg" 
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <div class="absolute inset-0 bg-[#020617]/70"></div>
+
+  <div class="absolute w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-100px]"></div>
+  <div class="absolute w-[400px] h-[400px] bg-cyan-400/20 rounded-full blur-3xl bottom-[-100px] right-[-100px]"></div>
+
+  <div class="relative z-10 max-w-2xl px-6">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+      Securely Upload, Manage & Protect Your Documents
+    </h1>
+
+    <p class="mb-6 text-gray-300 text-lg">
+      All your important files, safely stored and easily accessible.
+    </p>
+
+    <div class="flex justify-center gap-4">
+      <a href="/signup" class="bg-blue-500 px-6 py-2 rounded-md hover:bg-blue-600">
+        Get Started
+      </a>
+      <a href="/uploads" class="border border-blue-400 px-6 py-2 rounded-md hover:bg-blue-500 hover:text-white">
+        Upload Files
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<section class="py-16 text-center">
+  <h2 class="text-3xl font-semibold mb-10 text-blue-400">Features</h2>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+
+    <div class="p-6 rounded-xl bg-[#1e293b]/50 backdrop-blur-lg border border-blue-500/20 hover:shadow-lg hover:shadow-blue-500/20 transition">
+      <h3 class="text-xl font-semibold mb-2">🔐 Secure Login</h3>
+      <p class="text-gray-300">Safe authentication and protected access.</p>
+    </div>
+
+    <div class="p-6 rounded-xl bg-[#1e293b]/50 backdrop-blur-lg border border-blue-500/20 hover:shadow-lg hover:shadow-blue-500/20 transition">
+      <h3 class="text-xl font-semibold mb-2">📤 Easy Uploads</h3>
+      <p class="text-gray-300">Upload files quickly with ease.</p>
+    </div>
+
+    <div class="p-6 rounded-xl bg-[#1e293b]/50 backdrop-blur-lg border border-blue-500/20 hover:shadow-lg hover:shadow-blue-500/20 transition">
+      <h3 class="text-xl font-semibold mb-2">📁 Better Management</h3>
+      <p class="text-gray-300">Organize and access files anytime.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="py-16 text-center bg-[#020617]">
+  <h2 class="text-3xl font-semibold mb-10 text-blue-400">How It Works</h2>
+
+  <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+
+    <div class="bg-[#1e293b]/40 p-6 rounded-xl border border-blue-500/20">
+      <h3 class="text-xl font-semibold">1️⃣ Login / Sign Up</h3>
+    </div>
+
+    <div class="bg-[#1e293b]/40 p-6 rounded-xl border border-blue-500/20">
+      <h3 class="text-xl font-semibold">2️⃣ Upload Files</h3>
+    </div>
+
+    <div class="bg-[#1e293b]/40 p-6 rounded-xl border border-blue-500/20">
+      <h3 class="text-xl font-semibold">3️⃣ Manage Anytime</h3>
+    </div>
+
+  </div>
+</section>
+
+<footer class="bg-[#020617] text-center py-6 border-t border-blue-500/20">
+  <p class="text-gray-400">© 2026 Your Name | DocuFort</p>
+
+  <div class="mt-2 flex justify-center gap-6 text-sm text-gray-400">
+    <a href="/" class="hover:text-blue-400">Home</a>
+    <a href="/uploads" class="hover:text-blue-400">My Uploads</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+</div>
+
+<%- include("./partials/footer") %>

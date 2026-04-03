@@ -1,0 +1,106 @@
+<%- include("./partials/header") %>
+
+<div class="min-h-screen bg-[#0b1120] text-white relative overflow-hidden">
+  <div class="absolute w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-100px]"></div>
+  <div class="absolute w-[300px] h-[300px] bg-cyan-400/20 rounded-full blur-3xl bottom-[-100px] right-[-100px]"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto p-6">
+    
+    <div class="flex items-center justify-between mb-6 gap-4">
+
+
+  
+  <form method="GET" action="/search" class="flex-1">
+    <input 
+  type="text" 
+  id="searchInput"
+  placeholder="Search files or folders..."
+  class="w-full px-5 py-3 rounded-full bg-[#020617] border border-blue-500/20 focus:ring-2 focus:ring-blue-400 outline-none placeholder-gray-400"
+/>
+  </form>
+
+  <div class="flex items-center gap-4">
+
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <label class="flex items-center gap-2 px-4 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition cursor-pointer text-sm font-medium shadow">
+        <span class="text-lg">+</span>
+        <span>Upload</span>
+        <input type="file" name="file" class="hidden" onchange="this.form.submit()">
+      </label>
+    </form>
+
+    <div class="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-md">
+        <a href="/">Home</a>
+    </div>
+    <!-- <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-sm font-semibold shadow">
+      <%= user?.fullname?.charAt(0).toUpperCase() %>
+    </div> -->
+
+  </div>
+
+</div>
+
+    <% if (files && files.length > 0) { %>
+
+      <div class="bg-white/5 backdrop-blur-lg rounded-2xl shadow-xl border border-white/10 overflow-hidden">
+
+        <% files.forEach(file => { %>
+          <div class="file-item flex justify-between items-center px-5 py-4 border-b border-white/10 hover:bg-white/5 transition" data-name="<%= file.name.toLowerCase() %>">
+
+            <div class="flex items-center gap-4">
+              <div class="text-xl">
+                <%= file.isFolder ? "📁" : "📄" %>
+              </div>
+
+              <div>
+                <p class="font-semibold"><%= file.name %></p>
+                <p class="text-sm text-gray-400">
+                  <%= file.createdAt ? new Date(file.createdAt).toDateString() : "" %>
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 text-sm text-gray-400">
+
+
+              <a href="/file/download/<%= file._id %>" class="hover:text-green-400">
+                Download
+              </a>
+
+              <a href="/file/delete/<%= file._id %>" class="hover:text-red-400">
+                Delete
+              </a>
+
+            </div>
+
+          </div>
+        <% }) %>
+
+      </div>
+
+    <% } else { %>
+
+    <div class="flex justify-center items-center h-[60vh]">
+
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-10 text-center shadow-2xl hover:scale-105 transition cursor-pointer block">
+
+          <div class="text-5xl text-blue-400 mb-4">+</div>
+          <h2 class="text-xl font-semibold mb-2">Start Uploading Files</h2>
+          <p class="text-gray-400 text-sm">
+            Upload your first file or create a folder
+          </p>
+
+          <input type="file" name="file" class="hidden" onchange="this.form.submit()">
+        </label>
+      </form>
+
+    </div>
+
+    <% } %>
+
+  </div>
+
+</div>
+
+<%- include("./partials/footer") %>

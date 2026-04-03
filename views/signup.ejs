@@ -2,22 +2,19 @@
 
 <div class="min-h-screen flex items-center justify-center bg-[#0b1120] text-white relative overflow-hidden">
 
-  <!-- Glow -->
   <div class="absolute w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-3xl top-[-100px] left-[-100px]"></div>
   <div class="absolute w-[300px] h-[300px] bg-cyan-400/20 rounded-full blur-3xl bottom-[-100px] right-[-100px]"></div>
 
-  <!-- Card -->
   <div class="relative z-10 w-full max-w-md bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8">
 
-    <!-- Heading -->
     <h2 class="text-2xl font-semibold mb-6 text-center">Sign Up</h2>
 
-    <!-- Form -->
+
     <form action="/signup" method="POST" class="space-y-4">
 
       <input 
         type="text" 
-        name="name" 
+        name="fullname" 
         placeholder="Full Name" 
         required
         class="w-full px-4 py-2 rounded-md bg-[#020617] border border-blue-500/20 focus:ring-2 focus:ring-blue-400 outline-none"

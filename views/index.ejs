@@ -16,14 +16,33 @@
 
     <div class="flex items-center gap-6">
       <a href="/" class="hover:text-blue-400">Home</a>
-      <a href="/uploads" class="hover:text-blue-400">My Uploads</a>
-
+      <% if(!isLoggedin){%>
       <a href="/login" class="hover:text-blue-400">Login</a>
       <a href="/signup" class="bg-blue-500 px-4 py-1 rounded-md hover:bg-blue-600 ">
         Sign Up
       </a>
+      <%} else{ %>
+        
+      <a href="/myUploads" class="hover:text-blue-400">My Uploads</a>
+    <div class="relative">
+    <div 
+      onclick="toggleDropdown()" 
+      class="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center text-white font-semibold cursor-pointer">
+      <%= user?.fullname?.charAt(0).toUpperCase() %>
     </div>
-
+    <div 
+      id="dropdownMenu" 
+      class="hidden absolute right-0 mt-2 w-40 bg-[#1e293b] rounded-lg shadow-lg border border-blue-500/20">
+      <div class="px-4 py-2 text-sm text-gray-300 border-b border-blue-500/20">
+        👤 <%= user?.fullname %>
+      </div>
+      <a href="/logout" class="block px-4 py-2 text-sm hover:bg-red-500/20 hover:text-red-400">
+        Logout
+      </a>
+    </div>
+    </div>
+  
+    <%}%>
   </div>
 </nav>
 
@@ -51,10 +70,12 @@
     </p>
 
     <div class="flex justify-center gap-4">
+      <% if(!isLoggedin){%>
       <a href="/signup" class="bg-blue-500 px-6 py-2 rounded-md hover:bg-blue-600">
         Get Started
       </a>
-      <a href="/uploads" class="border border-blue-400 px-6 py-2 rounded-md hover:bg-blue-500 hover:text-white">
+      <%}%>
+      <a href="/upload" class="border border-blue-400 px-6 py-2 rounded-md hover:bg-blue-500 hover:text-white">
         Upload Files
       </a>
     </div>
